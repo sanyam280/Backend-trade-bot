@@ -1,0 +1,25 @@
+enum TradeType {
+  LONG
+  SHORT
+}
+
+enum signalType{
+    FOREX
+    CRYPTO
+    COMMODITIES
+}
+
+model Signal {
+  id              Int       @id @default(autoincrement())
+  createdAt       DateTime  @default(now())
+  signalType      signalType
+  pair            String
+  entryStart      Float     // or Decimal if you need precision
+  entryEnd        Float
+  stopLoss        Float
+  tp1             Float
+  tp2             Float
+  tradeType       TradeType   
+  adminId         Int
+  admin           Admin     @relation(fields: [adminId], references: [id], name: "SignalsByAdmin")
+}

@@ -1,0 +1,9 @@
+model Admin{
+  id               String @id @default(uuid())
+  telegram_user_id String @unique
+  access_level     String
+  created_at       DateTime @default(now())
+  updated_at       DateTime @updatedAt
+
+  signals          Signal[] @relation("AdminSignals")
+}
