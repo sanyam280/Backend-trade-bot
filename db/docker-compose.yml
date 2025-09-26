@@ -1,0 +1,15 @@
+services:
+  postgres:
+    container_name: trade_bot_db
+    image: postgres
+    ports:
+      - 5432:5432
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_DB: telegram_bot_db
+      POSTGRES_PASSWORD: admin
+
+volumes:
+  postgres_data:
