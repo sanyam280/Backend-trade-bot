@@ -1,6 +1,6 @@
 services:
   postgres:
-    container_name: telegram_bot
+    container_name: trade_bot_db
     image: postgres
     ports:
       - 5432:5432
